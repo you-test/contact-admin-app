@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    volumes:
+      - ./mysql:/bar/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=contact_admin_db
+      - MYSQL_USER=sato1987
+      - MYSQL_PASSWORD=sato1987
+  phpmyadmin:
+    container_name: phpMyAdmin
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+    restart: always
+    ports:
+      - "80:80"
+  php:
+    container_name: php-apache
+    build: ./php
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - 8080:80
+    depends_on:
+      - mysql
