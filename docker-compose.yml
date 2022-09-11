@@ -26,7 +26,7 @@ services:
     container_name: php-apache
     build: ./php
     volumes:
-      - ./html:/var/www/html
+      - ./:/var/www/html
     ports:
       - 8080:80
     depends_on:

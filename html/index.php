@@ -1,3 +1,0 @@
-<Doctype html>
-    test
-</html>
