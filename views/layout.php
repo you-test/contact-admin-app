@@ -10,9 +10,9 @@
     <header>
         <h1>お問い合わせ管理</h1>
         <ul class="header-nav">
-            <li><a href="" class="btn btn_header">トップ</a></li>
-            <li><a href="" class="btn btn_header">お問い合わせ管理</a></li>
-            <li><a href="" class="btn btn_header">ユーザー管理</a></li>
+            <li><a href="../top.php" class="btn btn_header">トップ</a></li>
+            <li><a href="../contact" class="btn btn_header">お問い合わせ管理</a></li>
+            <li><a href="../user" class="btn btn_header">ユーザー管理</a></li>
         </ul>
         <div>
             <a href="" class="logout-btn">ログアウト</a>
