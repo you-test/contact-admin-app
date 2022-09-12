@@ -1,4 +1,4 @@
 <?php
 
-require_once(__DIR__ . '/actions/top.php');
+require_once(__DIR__ . '/top.php');
 exit;

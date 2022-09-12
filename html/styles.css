@@ -46,6 +46,10 @@ h2 {
   text-align: center;
 }
 
+.border-none {
+  border: none;
+}
+
 /* content */
 .container {
   width: 1000px;
@@ -106,4 +110,28 @@ header {
   width: 150px;
   margin: 0 auto 20px;
   padding: 20px 0;
+}
+
+/* contact top page */
+.btn_contact {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.sort_contact {
+  margin-bottom: 10px;
+}
+
+.contact-list {
+  font-size: 1.2rem;
+}
+
+.contact-list a {
+  color: blue;
+}
+
+.contact-list,
+.contact-list th,
+.contact-list td {
+  border: 1px solid grey;
 }
