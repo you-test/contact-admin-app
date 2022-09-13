@@ -29,9 +29,13 @@ h1 {
   font-weight: bold;
 }
 
+label, input, textarea {
+  display: block;
+}
+
 /* common */
 h2 {
-  width: 200px;
+  width: 250px;
   text-align: center;
   font-weight: bold;
   margin: 40px auto 40px;
@@ -44,6 +48,16 @@ h2 {
   background: skyblue;
   border-radius: 10px;
   text-align: center;
+}
+
+.btn-back {
+  border-radius: 0;
+  width: 130px;
+}
+
+.submit-btn {
+  border: 2px solid grey;
+  width: 100px;
 }
 
 .border-none {
@@ -134,4 +148,27 @@ header {
 .contact-list th,
 .contact-list td {
   border: 1px solid grey;
+}
+
+/* contact register */
+.register-btn-block {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.contact-no {
+  margin-bottom: 20px;
+}
+
+.contact-register-wrapper form>div:nth-of-type(1),
+.contact-register-wrapper form>div:nth-of-type(2) {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.contact-register-wrapper form>div:nth-of-type(1) div,
+.contact-register-wrapper form>div:nth-of-type(2) div {
+  margin-right: 20px;
 }

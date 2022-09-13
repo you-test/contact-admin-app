@@ -1,7 +1,7 @@
 <div class="contact-wrapper">
     <h2>お問い合わせ管理【一覧】</h2>
-    <a href="" class="btn btn_contact">新規登録</a>
-    <form action="" method="post" name="">
+    <a href="../../contact/register.php" class="btn btn_contact">新規登録</a>
+    <form action="" method="post">
         <table class="sort_contact">
             <tr>
                 <td>期間</td>
