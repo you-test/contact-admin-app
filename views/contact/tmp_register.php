@@ -2,9 +2,9 @@
     <h2>お問い合わせ管理【新規登録】</h2>
     <div class="register-btn-block">
         <a href="../../contact" class="btn btn-back">< 一覧に戻る</a>
-        <button  class="btn submit-btn">登録</button>
+        <button class="btn submit-btn" form="register">登録</button>
     </div>
-    <form action="" method="post">
+    <form action="../../actions/register.php" method="post" id="register">
         <label for="contact-no">お問い合わせNO</label>
         <input type="text" disabled value="000001" id="contact-no" class="contact-no">
         <div>
