@@ -4,7 +4,7 @@
         <a href="../../contact" class="btn btn-back">< 一覧に戻る</a>
         <button class="btn submit-btn" form="register">登録</button>
     </div>
-    <form action="../../actions/register.php" method="post" id="register">
+    <form action="../../actions/action_register.php" method="post" id="register">
         <label for="contact-no">お問い合わせNO</label>
         <input type="text" disabled value="000001" id="contact-no" class="contact-no">
         <div>
