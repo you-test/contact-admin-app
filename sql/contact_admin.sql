@@ -11,6 +11,11 @@ CREATE TABLE contact_data (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+-- change charset and collate
+ALTER TABLE contact_data
+  CONVERT TO CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
+
 -- create action log
 CREATE TABLE action_logs (
   id SERIAL PRIMARY KEY,

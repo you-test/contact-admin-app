@@ -15,9 +15,9 @@
             <div>
                 <label for="status">対応ステータス</label>
                 <select name="status">
-                    <option value="1">未対応</option>
-                    <option value="2">進行中</option>
-                    <option value="3">完了</option>
+                    <option value="未対応">未対応</option>
+                    <option value="進行中">進行中</option>
+                    <option value="完了">完了</option>
                 </select>
             </div>
             <div>
@@ -31,19 +31,16 @@
         <div>
             <div>
                 <label for="name">お名前</label>
-                <input type="text" id="name">
+                <input type="text" id="name" name="name">
             </div>
             <div>
                 <label for="mail">メールアドレス</label>
-                <input type="email" id="mail">
+                <input type="email" id="mail" name="mail">
             </div>
         </div>
         <label for="title">タイトル</label>
-        <textarea name="title" cols="30" rows="10">支払方法についてのお問い合わせ</textarea>
+        <textarea name="title" cols="30" rows="10"></textarea>
         <label for="content">受信本文</label>
-        <textarea name="content" cols="30" rows="10">支払い方法についてお問い合わせ下です。</textarea>
-        <!-- 履歴 -->
-        <h3>履歴</h3>
-        <textarea name="log" cols="30" rows="10"></textarea>
+        <textarea name="content" cols="30" rows="10"></textarea>
     </form>
 </div>
