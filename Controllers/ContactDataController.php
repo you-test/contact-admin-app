@@ -1,6 +1,6 @@
 <?php
 
-class ContactData
+class ContactDataController
 {
     public function __construct(private PDO $pdo)
     {
@@ -19,13 +19,13 @@ class ContactData
             $content = $_POST['content'];
 
             // contact_dataテーブルへのデータ挿入
-            $ContactDataSql = <<<SQL
+            $contactDataSql = <<<SQL
             INSERT INTO contact_data
             (received_date, status, user_id, mail, title, content)
             VALUES
             (:received_date, :status, :user_id, :mail, :title, :content)
             SQL;
-            $statement = $this->pdo->prepare($ContactDataSql);
+            $statement = $this->pdo->prepare($contactDataSql);
             $statement->bindValue('received_date', $receiveTime);
             $statement->bindValue('status', $status);
             $statement->bindValue('user_id', $user);

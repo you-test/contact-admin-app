@@ -44,36 +44,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><a href="">000001</a></td>
-                <td>2022/05/29 15:00</td>
-                <td>完了</td>
-                <td>決済について</td>
-                <td>佐藤太郎</td>
-                <td>example@xxx.com</td>
-                <td>2022/05/30 13:00</td>
-                <td>佐藤佑介</td>
-            </tr>
-            <tr>
-                <td><a href="">000002</a></td>
-                <td>2022/05/29 15:00</td>
-                <td>未対応</td>
-                <td>利用方法についての質問</td>
-                <td>佐藤次郎</td>
-                <td>example.jiro@xxx.com</td>
-                <td>2022/05/30 12:00</td>
-                <td>佐藤佑介</td>
-            </tr>
-            <tr>
-                <td><a href="">000003</a></td>
-                <td>2022/06/01 12:00</td>
-                <td>進行中</td>
-                <td>退会方法についての質問</td>
-                <td>佐藤三郎</td>
-                <td>example.sabu@xxx.com</td>
-                <td>2022/08/01 15:00</td>
-                <td>佐藤佑介</td>
-            </tr>
+            <?php foreach ($contactListData as $contactData): ?>
+                <tr>
+                    <td><a href=""><?= $contactData['contact_id'] ?></a></td>
+                    <td><?= $contactData['received_date'] ?></td>
+                    <td><?= $contactData['status'] ?></td>
+                    <td><?= $contactData['title'] ?></td>
+                    <td>佐藤太郎</td>
+                    <td><?= $contactData['mail'] ?></td>
+                    <td><?= $contactData['updated_at'] ?></td>
+                    <td><?= $contactData['user_id'] ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

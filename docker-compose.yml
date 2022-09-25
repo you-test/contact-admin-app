@@ -4,8 +4,8 @@ services:
     container_name: mysql
     image: mariadb
     volumes:
-      - ./mysql:/var/lib/mysql
-      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - 3306:3306
     environment:
@@ -13,6 +13,7 @@ services:
       - MYSQL_DATABASE=contact_admin_db
       - MYSQL_USER=sato1987
       - MYSQL_PASSWORD=sato1987
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
   phpmyadmin:
     container_name: phpMyAdmin
     depends_on:
