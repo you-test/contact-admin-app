@@ -36,4 +36,19 @@ class ContactDataController
             header('Location: ../contact');
         }
     }
+
+    // お問い合わせデータの取得
+    public function getContactData(): array
+    {
+        $contact_id = $_GET['id'];
+        $sql = <<<SQL
+        SELECT * FROM contact_data
+        WHERE contact_id = :contact_id;
+        SQL;
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('contact_id', $contact_id);
+        $statement->execute();
+        $contactData = $statement->fetch();
+        return $contactData;
+    }
 }
