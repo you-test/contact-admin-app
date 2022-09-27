@@ -11,6 +11,9 @@ CREATE TABLE contact_data (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+-- add column "name"
+ALTER TABLE contact_data ADD name VARCHAR(255) NOT NULL AFTER user_id;
+
 -- change charset and collate
 ALTER TABLE contact_data
   CONVERT TO CHARACTER SET utf8mb4
