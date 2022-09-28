@@ -41,7 +41,43 @@ class ContactDataController
     // お問い合わせデータの更新
     public function update(): void
     {
+        $contactId = $_POST['id'];
+        $receivedTime = $_POST['receive_time'];
+        $status = $_POST['status'];
+        $user = $_POST['user'];
+        $name = $_POST['name'];
+        $mail = $_POST['mail'];
+        $title = $_POST['title'];
+        $content = $_POST['content'];
 
+        // contact_dataテーブルへのデータ更新
+        $sql = <<<SQL
+        UPDATE
+            contact_data
+        SET
+            received_date = :received_time,
+            status = :status,
+            user_id = :user_id,
+            name = :name,
+            mail = :mail,
+            title = :title,
+            content = :content
+        WHERE
+            contact_id = :contact_id
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('received_time', $receivedTime);
+        $statement->bindValue('status', $status);
+        $statement->bindValue('user_id', $user);
+        $statement->bindValue('name', $name);
+        $statement->bindValue('mail', $mail);
+        $statement->bindValue('title', $title);
+        $statement->bindValue('content', $content);
+        $statement->bindValue('contact_id', $contactId);
+        $statement->execute();
+
+        header('Location: ../contact');
     }
 
     // お問い合わせデータの取得
