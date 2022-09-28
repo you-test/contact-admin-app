@@ -7,6 +7,7 @@
     <form action="../../actions/contact/action_register.php" method="post" id="register">
         <label for="id">お問い合わせNO</label>
         <input type="text" value="<?= str_pad($contactData['contact_id'], 6, 0, STR_PAD_LEFT) ?>" disabled class="contact-no">
+        <input type="hidden" name="id" value="<?= $contactData['contact_id'] ?>">
         <div>
             <div>
                 <label for="contact-date">受信日</label>
@@ -42,7 +43,7 @@
         <textarea name="title" cols="30" rows="10"><?= $contactData['title'] ?></textarea>
         <label for="content">受信本文</label>
         <textarea name="content" cols="30" rows="10"><?= $contactData['content'] ?></textarea>
-        <label for="log">履歴</label>
+        <label for="log">履歴の追加</label>
         <textarea name="log" id="log" cols="30" rows="10"></textarea>
     </form>
 </div>

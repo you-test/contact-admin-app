@@ -21,20 +21,27 @@ class ContactDataController
             // contact_dataテーブルへのデータ挿入
             $contactDataSql = <<<SQL
             INSERT INTO contact_data
-            (received_date, status, user_id, mail, title, content)
+            (received_date, status, user_id, name, mail, title, content)
             VALUES
-            (:received_date, :status, :user_id, :mail, :title, :content)
+            (:received_date, :status, :user_id, :name, :mail, :title, :content)
             SQL;
             $statement = $this->pdo->prepare($contactDataSql);
             $statement->bindValue('received_date', $receiveTime);
             $statement->bindValue('status', $status);
             $statement->bindValue('user_id', $user);
+            $statement->bindValue('name', $name);
             $statement->bindValue('mail', $mail);
             $statement->bindValue('title', $title);
             $statement->bindValue('content', $content);
             $statement->execute();
             header('Location: ../contact');
         }
+    }
+
+    // お問い合わせデータの更新
+    public function update(): void
+    {
+
     }
 
     // お問い合わせデータの取得
