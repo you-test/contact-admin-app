@@ -32,13 +32,38 @@ class ContactLogController
         $statement->bindValue('content', $logContent);
         $statement->execute();
     }
+
     // 既存履歴の更新
     public function update(): void
     {
         $contactLogs = $_POST['logs_exist'];
-        print_r($contactLogs);
+        $contactId = $_POST['id'];
+
+
+        if (isset($contactLogs)) {
+            foreach ($contactLogs as $logId => $contactLog) {
+                $sql = <<<SQL
+                UPDATE
+                    action_logs
+                SET
+                    content = :content,
+                    contact_id = :contact_id
+                WHERE
+                    id = :id
+                SQL;
+
+                $statement = $this->pdo->prepare($sql);
+                $statement->bindValue('content', $contactLog);
+                $statement->bindValue('contact_id', $contactId);
+                $statement->bindValue('id', $logId);
+                $statement->execute();
+            }
+        }
+
+        header('Location: ../../contact');
     }
 
+    // 表示する履歴の取得
     public function getContactLogs(): array
     {
         $contactId = $_GET['id'];

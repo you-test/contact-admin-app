@@ -92,4 +92,18 @@ class ContactDataController
         $contactData = $statement->fetch();
         return $contactData;
     }
+
+    // お問い合わせデータの削除
+    public function delete(): void
+    {
+        $contactId = $_POST['contact_id'];
+        $sql = <<<SQL
+        DELETE FROM contact_data
+        WHERE contact_id = :contact_id
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('contact_id', $contactId);
+        $statement->execute();
+    }
 }

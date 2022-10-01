@@ -2,7 +2,13 @@
     <h2>お問い合わせ管理【新規登録】</h2>
     <div class="register-btn-block">
         <a href="../../contact" class="btn btn-back">< 一覧に戻る</a>
-        <button class="btn submit-btn" form="update">登録</button>
+        <div>
+            <button class="btn submit-btn" form="update">登録</button>
+            <form action="../../actions/contact/action_delete.php">
+                <input type="hidden" name="contact_id">
+                <button>削除</button>
+            </form>
+        </div>
     </div>
     <form action="../../actions/contact/action_update.php" method="post" id="update">
         <label for="id">お問い合わせNO</label>
@@ -47,8 +53,7 @@
         <textarea name="log_add" id="log" cols="30" rows="10"></textarea>
         <?php foreach ($contactLogs as $contactLog): ?>
             <label for="log_exist">作成：<?= $contactLog['created_at'] ?>&nbsp;更新：<?= $contactLog['updated_at'] ?></label>
-            <textarea name="logs_exist[]" id="log_exist" cols="30" rows="10"><?= $contactLog['content'] ?></textarea>
-            <input type="hidden" name="log_id" value="<?= $contactLog['id'] ?>">
+            <textarea name="logs_exist[<?= $contactLog['id'] ?>]" id="log_exist" cols="30" rows="10"><?= $contactLog['content'] ?></textarea>
         <?php endforeach; ?>
     </form>
 </div>
