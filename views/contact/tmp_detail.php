@@ -44,6 +44,11 @@
         <label for="content">受信本文</label>
         <textarea name="content" cols="30" rows="10"><?= $contactData['content'] ?></textarea>
         <label for="log">履歴の追加</label>
-        <textarea name="log" id="log" cols="30" rows="10"></textarea>
+        <textarea name="log_add" id="log" cols="30" rows="10"></textarea>
+        <?php foreach ($contactLogs as $contactLog): ?>
+            <label for="log_exist">作成：<?= $contactLog['created_at'] ?>&nbsp;更新：<?= $contactLog['updated_at'] ?></label>
+            <textarea name="logs_exist[]" id="log_exist" cols="30" rows="10"><?= $contactLog['content'] ?></textarea>
+            <input type="hidden" name="log_id" value="<?= $contactLog['id'] ?>">
+        <?php endforeach; ?>
     </form>
 </div>
