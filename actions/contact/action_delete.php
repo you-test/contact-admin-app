@@ -12,3 +12,5 @@ $contactLog = new ContactLogController($pdo);
 $contactData->delete();
 // 履歴の削除
 $contactLog->delete();
+
+header('Location: ../../contact');

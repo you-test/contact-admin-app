@@ -80,4 +80,18 @@ class ContactLogController
         $contactLogs = $statement->fetchAll();
         return $contactLogs;
     }
+
+    // 履歴の削除
+    public function delete(): void
+    {
+        $contactId = $_GET['contact_id'];
+        $sql = <<<SQL
+        DELETE FROM action_logs
+        WHERE contact_id = :contact_id
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('contact_id', $contactId);
+        $statement->execute();
+    }
 }

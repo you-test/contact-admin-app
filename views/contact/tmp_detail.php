@@ -5,7 +5,7 @@
         <div>
             <button class="btn submit-btn" form="update">登録</button>
             <form action="../../actions/contact/action_delete.php">
-                <input type="hidden" name="contact_id">
+                <input type="hidden" name="contact_id" value="<?= $contactData['contact_id'] ?>">
                 <button>削除</button>
             </form>
         </div>
