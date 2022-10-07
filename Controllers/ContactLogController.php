@@ -36,11 +36,10 @@ class ContactLogController
     // 既存履歴の更新
     public function update(): void
     {
-        $contactLogs = $_POST['logs_exist'];
         $contactId = $_POST['id'];
 
-
-        if (isset($contactLogs)) {
+        if (array_key_exists('logs_exist', $_POST)) {
+            $contactLogs = $_POST['logs_exist'];
             foreach ($contactLogs as $logId => $contactLog) {
                 $sql = <<<SQL
                 UPDATE

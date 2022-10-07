@@ -1,7 +1,7 @@
 <div class="contact-wrapper">
     <h2>お問い合わせ管理【一覧】</h2>
     <a href="../../contact/register.php" class="btn btn_contact">新規登録</a>
-    <form action="" method="post">
+    <form action="./" method="post">
         <table class="sort_contact">
             <tr>
                 <td>期間</td>
@@ -11,19 +11,19 @@
             <tr>
                 <td>並び順</td>
                 <td>
-                    <select name="sort_1">
+                    <select name="sort_type">
                         <option value="">ソートタイプを選択</option>
-                        <option value="number">NO</option>
-                        <option value="receive_time">受信日</option>
+                        <option value="contact_id">NO</option>
+                        <option value="received_date">受信日</option>
                         <option value="status">ステータス</option>
-                        <option value="update_time">更新日</option>
+                        <option value="updated_at">更新日</option>
                     </select>
                 </td>
                 <td>
-                    <select name="sort_2">
+                    <select name="asc_desc">
                         <option value="">降順/昇順を選択</option>
-                        <option value="down">降順</option>
-                        <option value="up">昇順</option>
+                        <option value="desc">降順</option>
+                        <option value="ask">昇順</option>
                     </select>
                 </td>
             </tr>
