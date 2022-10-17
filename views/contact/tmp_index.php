@@ -23,7 +23,7 @@
                     <select name="asc_desc">
                         <option value="">降順/昇順を選択</option>
                         <option value="desc">降順</option>
-                        <option value="ask">昇順</option>
+                        <option value="asc">昇順</option>
                     </select>
                 </td>
             </tr>

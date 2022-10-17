@@ -51,8 +51,6 @@ class ContactListController
             $sort
         SQL;
 
-        var_dump($sql);
-
         $statement = $this->pdo->query($sql);
         $statement->execute();
         $contactListData = $statement->fetchAll();
