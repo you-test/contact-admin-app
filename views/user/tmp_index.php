@@ -1,6 +1,6 @@
 <div class="contact-wrapper">
     <h2>ユーザー管理【一覧】</h2>
-    <a href="../../contact/register.php" class="btn btn_contact">新規登録</a>
+    <a href="../../user/register.php" class="btn btn_contact">新規登録</a>
     <table class="contact-list">
         <thead>
             <tr>
