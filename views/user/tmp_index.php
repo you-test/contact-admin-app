@@ -16,17 +16,19 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach ($usersDataAndTasks as $userData): ?>
             <tr>
-                <td><a href="#">00001</a></td>
-                <td>佐藤佑介</td>
-                <td>example@xxx.com</td>
-                <td>管理者</td>
-                <td>2</td>
-                <td>1</td>
-                <td>15</td>
-                <td>2022-01-12 15:00</td>
-                <td>2022-01-15 16:00</td>
+                <td><a href="#"><?= $userData['user_data']['user_id'] ?></a></td>
+                <td><?= $userData['user_data']['name'] ?></td>
+                <td><?= $userData['user_data']['mail'] ?></td>
+                <td><?= $userData['user_data']['permission_id'] ?></td>
+                <td><?= $userData['user_tasks']['not_started'] ?></td>
+                <td><?= $userData['user_tasks']['in_progress'] ?></td>
+                <td><?= $userData['user_tasks']['done'] ?></td>
+                <td><?= $userData['user_data']['created_at'] ?></td>
+                <td><?= $userData['user_data']['updated_at'] ?></td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

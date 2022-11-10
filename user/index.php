@@ -5,7 +5,7 @@ require_once __DIR__ . '/../Controllers/UserListController.php';
 
 $pdo = Database::dbConnect();
 $userList = new UserListController($pdo);
-$userListData = $userList->showUserList();
+$usersDataAndTasks = $userList->showUserList();
 
 $content = 'user/tmp_index.php';
 include __dir__ . '/../views/layout.php';
