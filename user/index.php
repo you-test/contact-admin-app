@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../Database/Database.php';
+require_once __DIR__ . '/../Controllers/UserTaskController.php';
 require_once __DIR__ . '/../Controllers/UserListController.php';
 
 $pdo = Database::dbConnect();

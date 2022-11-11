@@ -176,3 +176,14 @@ header {
 .contact-register-wrapper form>div:nth-of-type(2) div {
   margin-right: 20px;
 }
+
+/* user detail */
+.user-form {
+  margin-bottom: 20px;
+}
+
+.user-task-table,
+.user-task-table tr,
+.user-task-table td {
+  border: 1px solid black;
+}

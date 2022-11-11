@@ -18,7 +18,7 @@
         <tbody>
             <?php foreach ($usersDataAndTasks as $userData): ?>
             <tr>
-                <td><a href="#"><?= $userData['user_data']['user_id'] ?></a></td>
+                <td><a href="../../user/detail.php?user_id=<?= $userData['user_data']['user_id'] ?>"><?= str_pad($userData['user_data']['user_id'], 6, 0, STR_PAD_LEFT) ?></a></td>
                 <td><?= $userData['user_data']['name'] ?></td>
                 <td><?= $userData['user_data']['mail'] ?></td>
                 <td><?= $userData['user_data']['permission_id'] ?></td>

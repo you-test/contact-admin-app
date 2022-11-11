@@ -48,37 +48,37 @@ class UserListController
       $usersDataAndTasks = [];
       foreach ($usersData as $key => $userData) {
          $usersDataAndTasks[$key]['user_data'] = $userData;
-         $usersDataAndTasks[$key]['user_tasks'] = $this->getTasksNumByProgress($userData['user_id']);
+         $usersDataAndTasks[$key]['user_tasks'] = UserTaskController::getTasksNumByProgress($userData['user_id'], $this->pdo);
       }
 
       return $usersDataAndTasks;
    }
 
    // ユーザーの進捗別タスク数を取得
-   private function getTasksNumByProgress(int $user_id): array
-   {
-      // $tasks = [[status => '未対応'],　[status => '進行中'], [status => '完了'],...]
-      $sql = "SELECT status FROM contact_data WHERE user_id = '$user_id'";
-      $statement = $this->pdo->query($sql);
-      $statement->execute();
-      $tasks = $statement->fetchAll();
+   // private function getTasksNumByProgress(int $user_id): array
+   // {
+   //    // $tasks = [[status => '未対応'],　[status => '進行中'], [status => '完了'],...]
+   //    $sql = "SELECT status FROM contact_data WHERE user_id = '$user_id'";
+   //    $statement = $this->pdo->query($sql);
+   //    $statement->execute();
+   //    $tasks = $statement->fetchAll();
 
-      $tasksNumByProgress = [
-         'not_started' => 0,
-         'in_progress' => 0,
-         'done' => 0
-      ];
+   //    $tasksNumByProgress = [
+   //       'not_started' => 0,
+   //       'in_progress' => 0,
+   //       'done' => 0
+   //    ];
 
-      foreach ($tasks as $task) {
-         if ($task['status'] === '未対応') {
-            $tasksNumByProgress['not_started'] ++;
-         } elseif ($task['status'] === '進行中') {
-            $tasksNumByProgress['in_progress'] ++;
-         } else {
-            $tasksNumByProgress['done'] ++;
-         }
-      }
+   //    foreach ($tasks as $task) {
+   //       if ($task['status'] === '未対応') {
+   //          $tasksNumByProgress['not_started'] ++;
+   //       } elseif ($task['status'] === '進行中') {
+   //          $tasksNumByProgress['in_progress'] ++;
+   //       } else {
+   //          $tasksNumByProgress['done'] ++;
+   //       }
+   //    }
 
-      return $tasksNumByProgress;
-   }
+   //    return $tasksNumByProgress;
+   // }
 }

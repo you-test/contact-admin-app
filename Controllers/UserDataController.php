@@ -6,7 +6,7 @@ class UserDataController
     {
     }
 
-    // お問い合わせデータの登録
+    // ユーザーデータの登録
     public function register(): void
     {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -31,17 +31,36 @@ class UserDataController
         }
     }
 
-    // お問い合わせデータの更新
+    // ユーザーデータの更新
     public function update(): void
     {
     }
 
-    // お問い合わせデータの取得
-    public function getContactData(): array
+    // ユーザーデータの取得
+    public function getUserData(): array
     {
+        $user_id = $_GET['user_id'];
+
+        $userDataSql = <<<SQL
+        SELECT
+            user_id,
+            mail,
+            name,
+            permission_id
+        FROM
+            users
+        WHERE
+            user_id = $user_id
+        SQL;
+
+        $statement = $this->pdo->query($userDataSql);
+        $statement->execute();
+        $userData = $statement->fetch();
+
+        return $userData;
     }
 
-    // お問い合わせデータの削除
+    // ユーザーデータの削除
     public function delete(): void
     {
     }
