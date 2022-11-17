@@ -10,7 +10,10 @@
             </form>
         </div>
     </div>
-    <form action="../../actions/user/action_register.php" method="post" id="register" class="user-form">
+    <form action="../../actions/user/action_update.php" method="post" id="register" class="user-form">
+        <label for="no">ユーザーNO</label>
+        <input type="text" id="no" name="no" value="<?= str_pad($userData['user_id'], 6, 0, STR_PAD_LEFT) ?>" disabled>
+        <input type="hidden" name="user_id" value="<?= $userData['user_id'] ?>">
         <div>
             <div>
                 <label for="name">お名前</label>

@@ -34,6 +34,30 @@ class UserDataController
     // ユーザーデータの更新
     public function update(): void
     {
+        $user_id = $_POST['user_id'];
+        $name = $_POST['name'];
+        $mail = $_POST['mail'];
+        $permission = $_POST['permission'];
+
+        $sql = <<<SQL
+        UPDATE
+            users
+        SET
+            name = :name,
+            mail = :mail,
+            permission_id = :permission
+        WHERE
+            user_id = :user_id
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('name', $name);
+        $statement->bindValue('mail', $mail);
+        $statement->bindValue('user_id', $user_id);
+        $statement->bindValue('permission', $permission);
+        $statement->execute();
+
+        header('Location: ../../user');
     }
 
     // ユーザーデータの取得
