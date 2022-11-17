@@ -87,5 +87,19 @@ class UserDataController
     // ユーザーデータの削除
     public function delete(): void
     {
+        $user_id = $_GET['user_id'];
+
+        $sql =<<<SQL
+        DELETE
+            FROM users
+        WHERE
+            user_id = :user_id
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('user_id', $user_id);
+        $statement->execute();
+
+        header('Location: ../../user');
     }
 }

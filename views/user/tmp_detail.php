@@ -5,7 +5,7 @@
         <div>
             <button class="btn submit-btn" form="register">登録</button>
             <form action="../../actions/user/action_delete.php">
-                <input type="hidden" name="user_id" value="">
+                <input type="hidden" name="user_id" value="<?= $userData['user_id'] ?>">
                 <button>削除</button>
             </form>
         </div>
