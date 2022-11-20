@@ -8,21 +8,7 @@ class UserListController
 
    public function showUserList(): array
    {
-      $sql = <<<SQL
-      SELECT
-         user_id,
-         name,
-         mail,
-         permission_id,
-         created_at,
-         updated_at
-      FROM
-         users
-      SQL;
-
-      $statement = $this->pdo->query($sql);
-      $statement->execute();
-      $usersData = $statement->fetchAll();
+      $usersData = $this->getUsersData();
 
       /**
        * 下記のデータ構造にする
@@ -54,31 +40,24 @@ class UserListController
       return $usersDataAndTasks;
    }
 
-   // ユーザーの進捗別タスク数を取得
-   // private function getTasksNumByProgress(int $user_id): array
-   // {
-   //    // $tasks = [[status => '未対応'],　[status => '進行中'], [status => '完了'],...]
-   //    $sql = "SELECT status FROM contact_data WHERE user_id = '$user_id'";
-   //    $statement = $this->pdo->query($sql);
-   //    $statement->execute();
-   //    $tasks = $statement->fetchAll();
+   public function getUsersData(): array
+   {
+      $sql = <<<SQL
+      SELECT
+         user_id,
+         name,
+         mail,
+         permission_id,
+         created_at,
+         updated_at
+      FROM
+         users
+      SQL;
 
-   //    $tasksNumByProgress = [
-   //       'not_started' => 0,
-   //       'in_progress' => 0,
-   //       'done' => 0
-   //    ];
+      $statement = $this->pdo->query($sql);
+      $statement->execute();
+      $usersData = $statement->fetchAll();
 
-   //    foreach ($tasks as $task) {
-   //       if ($task['status'] === '未対応') {
-   //          $tasksNumByProgress['not_started'] ++;
-   //       } elseif ($task['status'] === '進行中') {
-   //          $tasksNumByProgress['in_progress'] ++;
-   //       } else {
-   //          $tasksNumByProgress['done'] ++;
-   //       }
-   //    }
-
-   //    return $tasksNumByProgress;
-   // }
+      return $usersData;
+   }
 }

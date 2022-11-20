@@ -61,10 +61,8 @@ class UserDataController
     }
 
     // ユーザーデータの取得
-    public function getUserData(): array
+    public function getUserData(int $userId): array
     {
-        $user_id = $_GET['user_id'];
-
         $userDataSql = <<<SQL
         SELECT
             user_id,
@@ -74,7 +72,7 @@ class UserDataController
         FROM
             users
         WHERE
-            user_id = $user_id
+            user_id = $userId
         SQL;
 
         $statement = $this->pdo->query($userDataSql);

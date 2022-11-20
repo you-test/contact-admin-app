@@ -6,7 +6,8 @@ require_once __DIR__ . '/../Controllers/UserTaskController.php';
 
 $pdo = Database::dbConnect();
 $userDataInstance = new UserDataController($pdo);
-$userData = $userDataInstance->getUserData();
+$userId = $_GET['user_id'];
+$userData = $userDataInstance->getUserData($userId);
 $tasks = UserTaskController::getTasksNumByProgress($userData['user_id'], $pdo);
 
 

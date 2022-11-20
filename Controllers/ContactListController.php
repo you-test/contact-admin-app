@@ -40,7 +40,9 @@ class ContactListController
         SELECT
             contact_id,
             received_date,
-            status, user_id,
+            status,
+            user_id,
+            name,
             mail,
             title,
             updated_at

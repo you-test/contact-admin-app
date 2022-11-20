@@ -30,8 +30,9 @@
             <div>
                 <label for="user">担当者</label>
                 <select name="user">
-                    <option value="1" <?= $contactData['user_id'] === 1 ? 'selected' : ''; ?>>佐藤佑介</option>
-                    <option value="2" <?= $contactData['user_id'] === 2 ? 'selected' : ''; ?>>佐藤次郎</option>
+                    <?php foreach ($usersData as $userData): ?>
+                        <option value="<?= $userData['user_id'] ?>" <?= $contactData['user_id'] === $userData['user_id'] ? 'selected' : ''; ?>><?= $userData['name'] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
         </div>

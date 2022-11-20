@@ -44,16 +44,18 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($contactListData as $contactData): ?>
+            <?php foreach ($contactListData as $contactData):
+                $userData = $userDataInstance->getUserData($contactData['user_id']);
+            ?>
                 <tr>
                     <td><a href="../../contact/detail.php?id=<?= $contactData['contact_id'] ?>"><?= str_pad($contactData['contact_id'], 6, 0, STR_PAD_LEFT) ?></a></td>
                     <td><?= $contactData['received_date'] ?></td>
                     <td><?= $contactData['status'] ?></td>
                     <td><?= $contactData['title'] ?></td>
-                    <td>佐藤太郎</td>
+                    <td><?= $contactData['name'] ?></td>
                     <td><?= $contactData['mail'] ?></td>
                     <td><?= $contactData['updated_at'] ?></td>
-                    <td><?= $contactData['user_id'] ?></td>
+                    <td><?= $userData['name'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
