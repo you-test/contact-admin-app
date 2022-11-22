@@ -31,6 +31,7 @@
             <option value="3" <?php if ($userData['permission_id'] === 3) {echo 'selected';} ?>>閲覧者</option>
         </select>
     </form>
+    <button onclick="location.href='../../user/edit_password.php?user_id=<?= $userData['user_id'] ?>'">パスワードを変更する</button>
     <p>タスク状況</p>
     <table class="user-task-table">
         <thead>

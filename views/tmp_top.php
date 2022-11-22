@@ -3,8 +3,8 @@
     <div class="top-content">
         <p>メニューを選択してください</p>
         <ul class="top-menu">
-            <li><a href="" class="btn btn_top">お問い合わせ管理</a></li>
-            <li><a href="" class="btn btn_top">ユーザー管理</a></li>
+            <li><a href="../contact" class="btn btn_top">お問い合わせ管理</a></li>
+            <li><a href="../user" class="btn btn_top">ユーザー管理</a></li>
         </ul>
     </div>
 </div>

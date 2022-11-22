@@ -13,19 +13,21 @@ class UserDataController
             $name = $_POST['name'];
             $mail = $_POST['mail'];
             $permission = $_POST['permission'];
+            $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             // contact_dataテーブルへのデータ挿入
             $userDataSql = <<<SQL
             INSERT INTO users
-            (name, mail, permission_id)
+            (name, mail, permission_id, pass)
             VALUES
-            (:name, :mail, :permission_id)
+            (:name, :mail, :permission_id, :pass)
             SQL;
 
             $statement = $this->pdo->prepare($userDataSql);
             $statement->bindValue('name', $name);
             $statement->bindValue('mail', $mail);
             $statement->bindValue('permission_id', $permission);
+            $statement->bindValue('pass', $passwordHash);
             $statement->execute();
             header('Location: ../../user');
         }
@@ -99,5 +101,28 @@ class UserDataController
         $statement->execute();
 
         header('Location: ../../user');
+    }
+
+    // パスワードの更新
+    public function updatePassword(): void
+    {
+        $userId = $_POST['user_id'];
+        $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+        $sql = <<<SQL
+        UPDATE
+            users
+        SET
+            pass = :pass
+        WHERE
+            user_id = :user_id
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('pass', $passwordHash);
+        $statement->bindValue('user_id', $userId);
+        $statement->execute();
+
+        header('Location: ../../user/detail.php?user_id='. $userId);
     }
 }

@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../Database/Database.php';
 require_once __DIR__ . '/../Controllers/UserTaskController.php';
 require_once __DIR__ . '/../Controllers/UserListController.php';
+require_once __DIR__ . '/../Controllers/PermissionController.php';
 
 $pdo = Database::dbConnect();
 $userList = new UserListController($pdo);

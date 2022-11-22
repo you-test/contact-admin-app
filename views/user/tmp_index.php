@@ -21,7 +21,7 @@
                 <td><a href="../../user/detail.php?user_id=<?= $userData['user_data']['user_id'] ?>"><?= str_pad($userData['user_data']['user_id'], 6, 0, STR_PAD_LEFT) ?></a></td>
                 <td><?= $userData['user_data']['name'] ?></td>
                 <td><?= $userData['user_data']['mail'] ?></td>
-                <td><?= $userData['user_data']['permission_id'] ?></td>
+                <td><?= PermissionController::getPermissionName($userData['user_data']['permission_id']) ?></td>
                 <td><?= $userData['user_tasks']['not_started'] ?></td>
                 <td><?= $userData['user_tasks']['in_progress'] ?></td>
                 <td><?= $userData['user_tasks']['done'] ?></td>

@@ -21,5 +21,7 @@
             <option value="2">編集者</option>
             <option value="3">閲覧者</option>
         </select>
+        <label for="password">パスワード</label>
+        <input type="password" name="password" id="password">
     </form>
 </div>
