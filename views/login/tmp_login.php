@@ -6,7 +6,7 @@
     <title>Contact Admin</title>
     <link rel="stylesheet" href="../../html/styles.css">
 </head>
-<body>
+<body id="login">
     <header>
         <h1>お問い合わせ管理</h1>
     </header>

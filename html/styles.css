@@ -187,3 +187,16 @@ header {
 .user-task-table td {
   border: 1px solid black;
 }
+
+/* login page */
+#login .container form {
+  text-align: center;
+}
+
+#login .container form input {
+  margin: 0 auto;
+}
+
+#login .container form button {
+  margin-top: 20px;
+}
