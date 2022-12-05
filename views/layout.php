@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION)) {
+    print_r($_SESSION);
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -15,8 +20,8 @@
             <li><a href="../user" class="btn btn_header">ユーザー管理</a></li>
         </ul>
         <div>
-            <a href="" class="logout-btn">ログアウト</a>
-            <p>佐藤佑介</p>
+            <a href="../actions/logout/logout.php" class="logout-btn">ログアウト</a>
+            <p><?= $_SESSION['user']['name'] ?></p>
         </div>
     </header>
     <div class="container">

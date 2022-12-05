@@ -19,8 +19,8 @@ class LoginController
 
         if ($result) {
             if (password_verify($pass, $result['pass'])) {
-            $_SESSION['name'] = $result['name'];
-            $_SESSION['permission_id'] = $result['permission_id'];
+            $_SESSION['user']['name'] = $result['name'];
+            $_SESSION['user']['permission_id'] = $result['permission_id'];
             header('Location: ../../top.php');
             } else {
                 $message = 'メールアドレスまたはパスワードが違います';

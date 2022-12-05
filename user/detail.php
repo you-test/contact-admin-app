@@ -3,6 +3,10 @@
 require_once __DIR__ . '/../Database/Database.php';
 require_once __DIR__ . '/../Controllers/UserDataController.php';
 require_once __DIR__ . '/../Controllers/UserTaskController.php';
+require_once __DIR__ . '/../Controllers/AuthController';
+
+session_start();
+AuthController::loginJudge();
 
 $pdo = Database::dbConnect();
 $userDataInstance = new UserDataController($pdo);
