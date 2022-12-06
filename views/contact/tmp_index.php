@@ -1,6 +1,8 @@
 <div class="contact-wrapper">
     <h2>お問い合わせ管理【一覧】</h2>
+<?php if (isset($_SESSION['user']['permission_id']) && PermissionController::isAdminOrEditor($_SESSION['user']['permission_id'])): ?>
     <a href="../../contact/register.php" class="btn btn_contact">新規登録</a>
+<?php endif; ?>
     <form action="./" method="post">
         <table class="sort_contact">
             <tr>

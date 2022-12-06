@@ -21,8 +21,9 @@
             <div>
                 <label for="user">担当者</label>
                 <select name="user">
-                    <option value="1">佐藤佑介</option>
-                    <option value="2">佐藤次郎</option>
+                    <?php foreach ($usersData as $userData): ?>
+                        <option value="<?= $userData['user_id'] ?>"><?= $userData['name'] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
         </div>

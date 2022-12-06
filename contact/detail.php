@@ -5,6 +5,7 @@ require_once __DIR__ . '/../Controllers/ContactDataController.php';
 require_once __DIR__ . '/../Controllers/ContactLogController.php';
 require_once __DIR__ . '/../Controllers/UserListController.php';
 require_once __DIR__ . '/../Controllers/AuthController.php';
+require_once __DIR__ . '/../Controllers/PermissionController.php';
 
 session_start();
 AuthController::loginJudge();
@@ -16,6 +17,12 @@ $contactData = $contactDataInstance->getContactData();
 $contactLogs = $contactLogInstance->getContactLogs();
 $usersListInstance = new UserListController($pdo);
 $usersData = $usersListInstance->getUsersData();
+
+$permissionId = PermissionController::PERMISSION_ID['reader'];
+if (isset($_SESSION['user']['permission_id'])) {
+    $permissionId = $_SESSION['user']['permission_id'];
+}
+
 print_r($usersData);
 
 $content = 'contact/tmp_detail.php';

@@ -17,7 +17,9 @@ if (isset($_SESSION)) {
         <ul class="header-nav">
             <li><a href="../top.php" class="btn btn_header">トップ</a></li>
             <li><a href="../contact" class="btn btn_header">お問い合わせ管理</a></li>
+        <?php if (isset($_SESSION['user']['permission_id']) && $_SESSION['user']['permission_id'] === 1): ?>
             <li><a href="../user" class="btn btn_header">ユーザー管理</a></li>
+        <?php endif; ?>
         </ul>
         <div>
             <a href="../actions/logout/logout.php" class="logout-btn">ログアウト</a>
