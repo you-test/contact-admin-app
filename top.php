@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Controllers/AuthController';
+require_once __DIR__ . '/Controllers/AuthController.php';
 
 session_start();
 AuthController::loginJudge();

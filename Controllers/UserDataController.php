@@ -81,7 +81,11 @@ class UserDataController
         $statement->execute();
         $userData = $statement->fetch();
 
-        return $userData;
+        if ($userData) {
+            return $userData;
+        }
+
+        return ['name' => '担当ユーザーが登録されていません'];
     }
 
     // ユーザーデータの削除

@@ -4,7 +4,7 @@ require_once __DIR__ . '/../Database/Database.php';
 require_once __DIR__ . '/../Controllers/ContactDataController.php';
 require_once __DIR__ . '/../Controllers/ContactLogController.php';
 require_once __DIR__ . '/../Controllers/UserListController.php';
-require_once __DIR__ . '/../Controllers/AuthController';
+require_once __DIR__ . '/../Controllers/AuthController.php';
 
 session_start();
 AuthController::loginJudge();
