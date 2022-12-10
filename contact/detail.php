@@ -23,7 +23,5 @@ if (isset($_SESSION['user']['permission_id'])) {
     $permissionId = $_SESSION['user']['permission_id'];
 }
 
-print_r($usersData);
-
 $content = 'contact/tmp_detail.php';
 include __dir__ . '/../views/layout.php';

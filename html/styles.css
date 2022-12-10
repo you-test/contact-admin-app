@@ -150,6 +150,14 @@ header {
   border: 1px solid grey;
 }
 
+.background-yellow {
+  background: #FFF2CC;
+}
+
+.background-red {
+  background: #FF0000;
+}
+
 /* contact register */
 .contact-register-wrapper textarea {
   width: 80%;

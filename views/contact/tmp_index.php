@@ -49,7 +49,7 @@
             <?php foreach ($contactListData as $contactData):
                 $userData = $userDataInstance->getUserData($contactData['user_id']);
             ?>
-                <tr>
+                <tr <?= ContactStatusController::statusJudge($contactData['status']) ?>>
                     <td><a href="../../contact/detail.php?id=<?= $contactData['contact_id'] ?>"><?= str_pad($contactData['contact_id'], 6, 0, STR_PAD_LEFT) ?></a></td>
                     <td><?= $contactData['received_date'] ?></td>
                     <td><?= $contactData['status'] ?></td>

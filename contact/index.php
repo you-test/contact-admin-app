@@ -5,6 +5,7 @@ require_once __DIR__ . '/../Controllers/ContactListController.php';
 require_once __DIR__ . '/../Controllers/UserDataController.php';
 require_once __DIR__ . '/../Controllers/AuthController.php';
 require_once __DIR__ . '/../Controllers/PermissionController.php';
+require_once __DIR__ . '/../Controllers/ContactStatusController.php';
 
 session_start();
 AuthController::loginJudge();
