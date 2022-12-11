@@ -64,6 +64,10 @@ h2 {
   border: none;
 }
 
+.error {
+  color: #FF0000;
+}
+
 /* content */
 .container {
   width: 800px;

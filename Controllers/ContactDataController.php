@@ -18,6 +18,9 @@ class ContactDataController
             $title = $_POST['title'];
             $content = $_POST['content'];
 
+            $validation = new Validation();
+            $validation->contactRegisterValidation($receiveTime, $status, $user, $name, $mail, $title, $content);
+
             // contact_dataテーブルへのデータ挿入
             $contactDataSql = <<<SQL
             INSERT INTO contact_data
@@ -34,6 +37,7 @@ class ContactDataController
             $statement->bindValue('title', $title);
             $statement->bindValue('content', $content);
             $statement->execute();
+            unset($_SESSION['error']);
             header('Location: ../../contact');
         }
     }

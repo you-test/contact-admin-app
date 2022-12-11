@@ -9,6 +9,9 @@ AuthController::loginJudge();
 
 $pdo = Database::dbConnect();
 
+if (isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+}
 $usersListInstance = new UserListController($pdo);
 $usersData = $usersListInstance->getUsersData();
 

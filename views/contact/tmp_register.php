@@ -4,6 +4,15 @@
         <a href="../../contact" class="btn btn-back">< 一覧に戻る</a>
         <button class="btn submit-btn" form="register">登録</button>
     </div>
+    <!-- error -->
+<?php if (isset($_SESSION['error'])): ?>
+    <ul>
+        <?php foreach ($error as $e): ?>
+            <li class="error">※<?= $e ?></li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+    <!-- end error -->
     <form action="../../actions/contact/action_register.php" method="post" id="register">
         <div>
             <div>
