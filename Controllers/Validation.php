@@ -35,6 +35,10 @@ class Validation
 
         $_SESSION['error'] = $this->error;
 
+        if ($_SESSION['error'] === []) {
+            return;
+        }
+
         header('Location: ../../contact/register.php');
         exit;
     }
