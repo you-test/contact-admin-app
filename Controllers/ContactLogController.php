@@ -80,7 +80,7 @@ class ContactLogController
         return $contactLogs;
     }
 
-    // 履歴の削除
+    // 対象のお問合せに紐づく履歴を全て削除
     public function delete(): void
     {
         $contactId = $_GET['contact_id'];
@@ -92,5 +92,24 @@ class ContactLogController
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue('contact_id', $contactId);
         $statement->execute();
+    }
+
+    // 対象の履歴IDに紐づく履歴のみ削除
+    public function deleteTargetLog(): void
+    {
+        $contactLogId = $_POST['log_id'];
+        $sql = <<<SQL
+        DELETE
+            FROM action_logs
+        WHERE
+            id = :id
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue('id', $contactLogId);
+        $statement->execute();
+
+        $contactId = $_POST['contact_id'];
+        header('Location: ../../contact/detail.php?id=' . $contactId);
     }
 }
