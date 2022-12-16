@@ -11,6 +11,7 @@
             <li class="error">※<?= $e ?></li>
         <?php endforeach; ?>
     </ul>
+    <?php unset($_SESSION['error']); ?>
 <?php endif; ?>
     <!-- end error -->
     <form action="../../actions/contact/action_register.php" method="post" id="register">

@@ -12,6 +12,16 @@
         </div>
     <?php endif; ?>
     </div>
+    <!-- error -->
+<?php if (isset($_SESSION['error'])): ?>
+    <ul>
+        <?php foreach ($error as $e): ?>
+            <li class="error">※<?= $e ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
+    <!-- end error -->
     <form action="../../actions/contact/action_update.php" method="post" id="update">
         <label for="id">お問い合わせNO</label>
         <input type="text" value="<?= str_pad($contactData['contact_id'], 6, 0, STR_PAD_LEFT) ?>" disabled class="contact-no">

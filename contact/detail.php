@@ -23,5 +23,9 @@ if (isset($_SESSION['user']['permission_id'])) {
     $permissionId = $_SESSION['user']['permission_id'];
 }
 
+if (isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+}
+
 $content = 'contact/tmp_detail.php';
 include __dir__ . '/../views/layout.php';

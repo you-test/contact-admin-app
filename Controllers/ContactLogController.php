@@ -40,6 +40,7 @@ class ContactLogController
 
         if (array_key_exists('logs_exist', $_POST)) {
             $contactLogs = $_POST['logs_exist'];
+
             foreach ($contactLogs as $logId => $contactLog) {
                 $sql = <<<SQL
                 UPDATE

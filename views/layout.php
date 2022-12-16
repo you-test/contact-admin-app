@@ -3,6 +3,7 @@ if (isset($_SESSION)) {
     print_r($_SESSION);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
