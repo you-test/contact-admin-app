@@ -43,10 +43,18 @@ class Validation
         exit;
     }
 
-    public function contactUpdateValidation(int $contactId, string $receiveTime, string $status, int $user, string $name, string $mail, string $title, string $content, array $contactLogs) :void
+    public static function contactUpdateValidation(int $contactId): void
     {
-        $_SESSION['error'] = [];
+        if ($_SESSION['error'] === []) {
+            return;
+        }
 
+        header('Location: ../../contact/detail.php?id=' . $contactId);
+        exit;
+    }
+
+    public function contactDataUpdateValidation(int $contactId, string $receiveTime, string $status, int $user, string $name, string $mail, string $title, string $content) :void
+    {
         // recieved data (date > now, empty)
         if (empty(trim($receiveTime))) {
             $this->error[] = '受信日を選択してください。';
@@ -71,17 +79,12 @@ class Validation
         if (empty(trim($content))) {
             $this->error[] = '本文を入力してください。';
         }
-        // log (empty)
-        $this->contactLogUpdateValidation($contactLogs);
 
-        $_SESSION['error'] = $this->error;
-
-        if ($_SESSION['error'] === []) {
+        if (empty($this->error)) {
             return;
         }
 
-        header('Location: ../../contact/detail.php?id=' . $contactId);
-        exit;
+        $_SESSION['error'] = $this->error;
     }
 
     public function contactLogUpdateValidation(array $contactLogs):void
@@ -89,8 +92,13 @@ class Validation
         foreach ($contactLogs as $contactLog) {
             if (empty(trim($contactLog))) {
                 $this->error[] = '履歴を入力してください';
-                return;
             }
         }
+
+        if(empty($this->error)) {
+            return;
+        }
+
+        $_SESSION['error'][] = $this->error[0];
     }
 }

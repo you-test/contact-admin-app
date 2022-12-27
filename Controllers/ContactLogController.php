@@ -41,6 +41,12 @@ class ContactLogController
         if (array_key_exists('logs_exist', $_POST)) {
             $contactLogs = $_POST['logs_exist'];
 
+            $validation = new Validation();
+            $validation->contactLogUpdateValidation($contactLogs);
+            if (isset($_SESSION['error'])) {
+                return;
+            }
+
             foreach ($contactLogs as $logId => $contactLog) {
                 $sql = <<<SQL
                 UPDATE

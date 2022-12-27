@@ -54,6 +54,13 @@ class ContactDataController
         $title = $_POST['title'];
         $content = $_POST['content'];
 
+        // validation
+        $validation = new Validation();
+        $validation->contactDataUpdateValidation($contactId, $receivedTime, $status, $user, $name, $mail, $title, $content);
+        if (isset($_SESSION['error'])) {
+            return;
+        }
+
         // contact_dataテーブルへのデータ更新
         $sql = <<<SQL
         UPDATE
