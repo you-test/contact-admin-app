@@ -13,7 +13,12 @@ class UserDataController
             $name = $_POST['name'];
             $mail = $_POST['mail'];
             $permission = $_POST['permission'];
-            $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $password = $_POST['password'];
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+            // validation
+            $validation = new Validation();
+            $validation->userRegisterValidation($name, $mail, $password);
 
             // contact_dataテーブルへのデータ挿入
             $userDataSql = <<<SQL
