@@ -14,6 +14,10 @@ $userId = $_GET['user_id'];
 $userData = $userDataInstance->getUserData($userId);
 $tasks = UserTaskController::getTasksNumByProgress($userData['user_id'], $pdo);
 
+// validation
+if (isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+}
 
 $content = 'user/tmp_detail.php';
 include __dir__ . '/../views/layout.php';

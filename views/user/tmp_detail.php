@@ -10,6 +10,16 @@
             </form>
         </div>
     </div>
+    <!-- validation -->
+<?php if (isset($_SESSION['error'])): ?>
+    <ul>
+        <?php foreach ($error as $e): ?>
+            <li class="error">※<?= $e ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
+    <!-- /validation -->
     <form action="../../actions/user/action_update.php" method="post" id="register" class="user-form">
         <label for="no">ユーザーNO</label>
         <input type="text" id="no" name="no" value="<?= str_pad($userData['user_id'], 6, 0, STR_PAD_LEFT) ?>" disabled>

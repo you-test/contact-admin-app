@@ -46,6 +46,10 @@ class UserDataController
         $mail = $_POST['mail'];
         $permission = $_POST['permission'];
 
+        // validation
+        $validation = new Validation();
+        $validation->userUpdateValidation($name, $mail, $user_id);
+
         $sql = <<<SQL
         UPDATE
             users
@@ -116,7 +120,11 @@ class UserDataController
     public function updatePassword(): void
     {
         $userId = $_POST['user_id'];
-        $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = $_POST['password'];
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+        $validation = new Validation();
+        $validation->passwordUpdateValidation($password, $userId);
 
         $sql = <<<SQL
         UPDATE
