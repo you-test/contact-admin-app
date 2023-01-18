@@ -12,6 +12,13 @@
     </header>
     <div class="container">
         <h2>ログイン</h2>
+        <?php if (isset($_SESSION['error'])): ?>
+            <ul>
+                <?php foreach ($error as $e): ?>
+                    <li class="error">※<?= $e ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
         <form action="../../actions/login/action_login.php" method="post">
             <label for="mail">メールアドレス</label>
             <input type="mail" name="mail" placeholder="example@xxx.com">

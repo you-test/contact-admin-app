@@ -176,4 +176,29 @@ class Validation
         header('Location: /../../user/edit_password.php?user_id=' . $user_id);
         exit;
     }
+
+    // login validation
+    public function loginValidation(string $mail, string $pass): void
+    {
+        if (empty(trim($mail))) {
+            $this->error[] = 'メールアドレスを入力してください';
+        }
+        // mail (not mail type)
+        if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", trim($mail))) {
+            $this->error[] = 'メールアドレスの形式が間違っています';
+        }
+        // password (6 < string < 20,)
+        if (!preg_match("/^[a-zA-Z0-9!@]{6,20}$/", trim($pass))) {
+            $this->error[] = 'パスワードは半角英数字と記号(!,@)を使って6文字以上20文字以内で入力してください';
+        }
+
+        if (empty($this->error)) {
+            return;
+        }
+
+        $_SESSION['error'] = $this->error;
+
+        header('Location: /../../login.php');
+        exit;
+    }
 }
