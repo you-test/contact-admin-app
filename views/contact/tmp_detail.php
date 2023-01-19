@@ -65,13 +65,14 @@
     <?php if (PermissionController::isAdminOrEditor($permissionId)): ?>
         <label for="log">履歴の追加</label>
         <textarea name="log_add" id="log" cols="30" rows="10"></textarea>
+        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
     <?php endif; ?>
     </form>
     <form action="../../actions/contact/action_log_delete.php" method="POST" id="log">
         <?php foreach ($contactLogs as $contactLog): ?>
             <label for="log_exist">作成：<?= $contactLog['created_at'] ?>&nbsp;更新：<?= $contactLog['updated_at'] ?></label>
             <textarea name="logs_exist[<?= $contactLog['id'] ?>]" id="log_exist" form="update" cols="30" rows="10" <?= PermissionController::addDisabledOrNot($permissionId) ?>><?= $contactLog['content'] ?></textarea>
-            <button>削除</button>
+            <button <?= PermissionController::addDisabledOrNot($permissionId) ?>>削除</button>
             <input type="hidden" name="log_id" value="<?= $contactLog['id'] ?>">
             <input type="hidden" name="contact_id" value="<?= $contactData['contact_id'] ?>">
         <?php endforeach; ?>

@@ -6,9 +6,11 @@ require_once __DIR__ . '/../Controllers/ContactLogController.php';
 require_once __DIR__ . '/../Controllers/UserListController.php';
 require_once __DIR__ . '/../Controllers/AuthController.php';
 require_once __DIR__ . '/../Controllers/PermissionController.php';
+require_once __DIR__ . '/../Controllers/TokenController.php';
 
 session_start();
 AuthController::loginJudge();
+TokenController::createToken();
 
 $pdo = Database::dbConnect();
 $contactDataInstance = new ContactDataController($pdo);

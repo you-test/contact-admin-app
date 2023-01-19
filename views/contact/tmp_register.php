@@ -51,5 +51,6 @@
         <textarea name="title" cols="30" rows="10"></textarea>
         <label for="content">受信本文</label>
         <textarea name="content" cols="30" rows="10"></textarea>
+        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
     </form>
 </div>
