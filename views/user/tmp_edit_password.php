@@ -1,7 +1,7 @@
 <div class="contact-register-wrapper">
     <h2>パスワードの変更</h2>
     <div class="register-btn-block">
-        <a href="../../user/detail.php?user_id=<?= $userId ?>" class="btn btn-back">< ユーザー詳細に戻る</a>
+        <a href="../../user/detail.php?user_id=<?= $userId ?>" class="btn btn-back btn-back_psreset">< ユーザー詳細に戻る</a>
     </div>
     <!-- validation -->
     <?php if (isset($_SESSION['error'])): ?>
@@ -17,6 +17,7 @@
         <label for="password">新しいパスワードを入力</label>
         <input type="password" name="password" id="password">
         <input type="hidden" name="user_id" value="<?= $userId ?>">
+        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button type="submit">パスワードを登録</button>
     </form>
 </div>

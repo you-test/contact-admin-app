@@ -33,5 +33,6 @@
         </select>
         <label for="password">パスワード</label>
         <input type="password" name="password" id="password">
+        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
     </form>
 </div>

@@ -2,7 +2,7 @@
 
 class TokenController
 {
-    public const TOKEN_LENGTH = 32;
+    private const TOKEN_LENGTH = 32;
 
     public static function createToken(): void
     {

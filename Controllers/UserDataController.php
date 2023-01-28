@@ -100,7 +100,7 @@ class UserDataController
     // ユーザーデータの削除
     public function delete(): void
     {
-        $user_id = $_GET['user_id'];
+        $user_id = $_POST['user_id'];
 
         $sql =<<<SQL
         DELETE

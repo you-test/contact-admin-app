@@ -1,12 +1,13 @@
 <div class="contact-register-wrapper">
     <h2>お問い合わせ管理【詳細】</h2>
     <div class="register-btn-block">
-        <a href="../../contact" class="btn btn-back">< 一覧に戻る</a>
+        <a href="../../contact" class="btn btn-back btn-back_detail">< 一覧に戻る</a>
     <?php if (PermissionController::isAdminOrEditor($permissionId)): ?>
         <div>
             <button class="btn submit-btn" form="update">登録</button>
-            <form action="../../actions/contact/action_delete.php">
+            <form action="../../actions/contact/action_delete.php" method="post">
                 <input type="hidden" name="contact_id" value="<?= $contactData['contact_id'] ?>">
+                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                 <button>削除</button>
             </form>
         </div>

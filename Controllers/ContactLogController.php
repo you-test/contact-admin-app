@@ -90,7 +90,7 @@ class ContactLogController
     // 対象のお問合せに紐づく履歴を全て削除
     public function delete(): void
     {
-        $contactId = $_GET['contact_id'];
+        $contactId = $_POST['contact_id'];
         $sql = <<<SQL
         DELETE FROM action_logs
         WHERE contact_id = :contact_id

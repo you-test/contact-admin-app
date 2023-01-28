@@ -1,11 +1,12 @@
 <div class="contact-register-wrapper">
     <h2>ユーザー管理【詳細】</h2>
     <div class="register-btn-block">
-        <a href="../../user" class="btn btn-back">< 一覧に戻る</a>
+        <a href="../../user" class="btn btn-back btn-back_detail">< 一覧に戻る</a>
         <div>
             <button class="btn submit-btn" form="register">登録</button>
-            <form action="../../actions/user/action_delete.php">
+            <form action="../../actions/user/action_delete.php" method="post">
                 <input type="hidden" name="user_id" value="<?= $userData['user_id'] ?>">
+                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                 <button>削除</button>
             </form>
         </div>
@@ -40,6 +41,7 @@
             <option value="2" <?php if ($userData['permission_id'] === 2) {echo 'selected';} ?>>編集者</option>
             <option value="3" <?php if ($userData['permission_id'] === 3) {echo 'selected';} ?>>閲覧者</option>
         </select>
+        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
     </form>
     <button onclick="location.href='../../user/edit_password.php?user_id=<?= $userData['user_id'] ?>'">パスワードを変更する</button>
     <p>タスク状況</p>

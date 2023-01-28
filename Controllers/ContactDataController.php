@@ -107,7 +107,7 @@ class ContactDataController
     // お問い合わせデータの削除
     public function delete(): void
     {
-        $contactId = $_GET['contact_id'];
+        $contactId = $_POST['contact_id'];
         $sql = <<<SQL
         DELETE FROM contact_data
         WHERE contact_id = :contact_id
